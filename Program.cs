@@ -11,6 +11,8 @@ namespace VScodeC_
             NumberOne.hello();
             NumberThree.count();
             NumberFour.word();
+            NumberFive.IsOdd(4);
+            NumberFive.IsEven(8);
             NumberSix.grade(50);
             NumberSeven.CelciusToFahrenheit(100);
             NumberSeven.FahrenheitToCelcius(50);
@@ -18,6 +20,7 @@ namespace VScodeC_
             NumberSeven.KelvinToCelcius(375);
             NumberSeven.KelvinToFahrenheit(375);
             NumberSeven.FahrenheitToKelvin(12);
+            NumberEight.IsLeapYear();
             NumberTen.Sum(1,6);
             NumberTen.Multiply(2,6);
             NumberTen.Substract(2,7);
@@ -25,6 +28,8 @@ namespace VScodeC_
             NumberEleven.dotnet();
             NumberTwelve.uppercase("welcome to the world!");
             NumberThirteen.CountWords("Lorem ipsum dolor sit amet");
+            NumberFourteen.IsPalindrome("ipsum");
+            NumberFifteen.Mirror("---vv");
             NumberSixteen.IndexFinder("Pepaya");
             NumberSeventeen.loop();
             NumberEighteen.FindMax();
@@ -72,6 +77,20 @@ namespace VScodeC_
             string paragraph =$"Lorem ipsum {censoredWords[1]} sit ame, {censoredWords[0]} vituperata {censoredWords[2]} in, nonumy.";
         
             Console.WriteLine(paragraph);
+        }
+    }
+
+    class NumberFive
+    {
+        public static void IsEven(int angka)
+        { 
+            bool answer = angka %2 == 0;
+            Console.WriteLine(answer);
+        }
+        public static void IsOdd(int angka)
+        { 
+            bool answer = angka %2 == 1;
+            Console.WriteLine(answer);
         }
     }
 
@@ -141,6 +160,19 @@ namespace VScodeC_
         
     }
 
+    class NumberEight
+    {
+        public static void IsLeapYear()
+        { 
+            int tahun;
+            Console.Write("Masukkan tahun: ");
+            tahun = Convert.ToInt16(Console.ReadLine());
+
+            bool answer = tahun % 4 == 0 || tahun % 400 == 0;
+            Console.WriteLine(answer);
+        }
+    }
+
     class NumberTen
     {
         public static void Sum(int a, int b)
@@ -202,6 +234,46 @@ namespace VScodeC_
         {
             string[] katakata = kalimat.Split(' ');
             Console.WriteLine("Count ="+katakata.Length);
+        }
+
+    }
+
+    class NumberFourteen
+    {
+        private static string reverse(string kata)
+        {
+            char[] data = kata.ToCharArray();
+    
+            Array.Reverse(data);
+            return new string(data);
+        }
+
+        public static void IsPalindrome(string kata)
+        { 
+            bool answer = kata.Equals(reverse(kata));
+            Console.WriteLine(answer);
+        }
+    }
+
+
+
+    static class StringHelper
+    {
+        public static string ReverseString(string s)
+        {
+            char[] arr = s.ToCharArray();
+            Array.Reverse(arr);
+            return new string(arr);
+        }
+    }
+
+    class NumberFifteen
+    {
+        public static void Mirror(string kal)
+        {
+            string balik;
+            balik = StringHelper.ReverseString(kal);
+            Console.WriteLine(kal+balik);
         }
 
     }
